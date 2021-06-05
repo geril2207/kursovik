@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./media.css" />
   </head>
 
   <body>
@@ -31,11 +32,26 @@
               </div>
             </div>
             <div class="header__nav">
-              <div class="header__nav_item">О НАС</div>
-              <div class="header__nav_item">ВИДЫ ТРЕНЕРОВОК</div>
-              <div class="header__nav_item">АБОНЕМЕНТЫ</div>
-              <div class="header__nav_item">ТРЕНЕРА</div>
-              <div class="header__nav_item">КОНТАКТЫ</div>
+              <div class="header__nav_item" data-scroll="#why">О НАС</div>
+              <div class="header__nav_item" data-scroll="#group">
+                ВИДЫ ТРЕНЕРОВОК
+              </div>
+              <div class="header__nav_item" data-scroll="#price">
+                АБОНЕМЕНТЫ
+              </div>
+              <div class="header__nav_item" data-scroll="#train">ТРЕНЕРА</div>
+              <div class="header__nav_item" data-scroll="#contacts">
+                КОНТАКТЫ
+              </div>
+              <div class="burger__close">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="burger">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -57,18 +73,18 @@
       </div>
     </section>
 
-    <div class="pulse">
+    <div class="pulse about__pulse">
       <img class="" src="./img/pulse.svg" alt="" />
     </div>
 
-    <div class="why">
+    <div id="why" class="why">
       <div class="title__inner">
         <img class="title__bg" src="./img/title-bg.png" alt="" />
         <h2 class="title">Почему стоит выбрать</h2>
         <h3 class="subtitle">Pulse-fit?</h3>
       </div>
 
-      <div class="container">
+      <div class="container why__container">
         <div class="why__inner">
           <div class="why__item">
             <img src="./img/why/1.svg" alt="" class="why__item_logo" />
@@ -125,7 +141,7 @@
       </div>
     </div>
 
-    <section class="group">
+    <section id="group" class="group">
       <div class="title__inner">
         <img class="title__bg" src="./img/title-bg.png" alt="" />
         <h2 class="title">Групповые</h2>
@@ -207,14 +223,14 @@
       <img class="" src="./img/pulse.svg" alt="" />
     </div>
 
-    <section class="price">
+    <section id="price" class="price">
       <div class="title__inner">
         <img class="title__bg" src="./img/title-bg.png" alt="" />
         <h2 class="title">Что мы можем вам</h2>
         <h3 class="subtitle">предложить?</h3>
       </div>
 
-      <div class="container">
+      <div class="container price__container">
         <div class="price__inner">
           <div class="price__item">
             <div class="price__left">
@@ -233,7 +249,7 @@
             <div class="price__center">
               <img src="./img/arrow-left.svg" alt="" />
             </div>
-            <div class="price__right">
+            <div class="price__right price__right_media">
               <ul>
                 <li>Посещение зала до 18:00 в любой день недели</li>
                 <li>Групповые тренировки</li>
@@ -283,7 +299,7 @@
             <div class="price__center">
               <img src="./img/arrow-left.svg" alt="" />
             </div>
-            <div class="price__right">
+            <div class="price__right price__right_media">
               <ul>
                 <li>Включает в себя абонемент “STANDART”</li>
                 <li>Программа от тренера</li>
@@ -353,11 +369,13 @@
       </form>
     </div>
 
+    <!--
+    
     <div class="pulse">
       <img class="" src="./img/pulse.svg" alt="" />
     </div>
 
-    <div class="train">
+    <div id = "train" class="train">
       <div class="title__inner">
         <img class="title__bg train_bg" src="./img/train-bg.png" alt="" />
         <h2 class="title">Наши</h2>
@@ -459,7 +477,7 @@
       <img class="" src="./img/pulse.svg" alt="" />
     </div>
 
-    <div class="contacts">
+    <div id = "contacts" class="contacts">
       <div class="title__inner contacts__title__inner">
         <img class="title__bg train_bg" src="./img/train-bg.png" alt="" />
         <h2 class="title">Наши</h2>
@@ -474,7 +492,6 @@
         ></iframe>
       </div>
     </div>
-
     <footer class="footer">
       <div class="container">
         <div class="footer__inner">
@@ -494,7 +511,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer>  -->
 
     <script src="./index.js"></script>
   </body>
