@@ -26,9 +26,11 @@ window.addEventListener('click', (e) => {
     popup.classList.add('popup__active')
     return
   }
+  console.log(e.target.closest('.popup__close'))
   if (
-    !e.target.closest('.popup') &&
-    popup.classList.contains('popup__active')
+    (!e.target.closest('.popup') &&
+      popup.classList.contains('popup__active')) ||
+    e.target.closest('.popup__close')
   ) {
     popup.classList.remove('popup__active')
   }
