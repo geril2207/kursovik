@@ -247,7 +247,7 @@
   }
   .price__center {
     transform: rotate(90deg);
-    margin: 10px 0;
+    margin: 10px 30px;
   }
   .price__inner {
     margin-top: 50px;
