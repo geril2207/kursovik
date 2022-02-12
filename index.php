@@ -1,11 +1,11 @@
 <?php
-$a = 3;
-if ($a === 3) {
-    echo $a;
-}
+include './components/db.php';
+
+
+include './components/header.php';
 
 
 
-echo 'Hello world';
+include './pages/mainPage.php';
 
-echo '<a href="./index.php">To site</a>';
+include './components/footer.php';

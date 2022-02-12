@@ -1,0 +1,50 @@
+.login_body_wrapper {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.login__form_wrapper {
+  background: #fcf322;
+  border-radius: 15px;
+  padding: 15px;
+  max-width: 450px;
+}
+
+.login__form_wrapper form {
+  position: relative;
+  z-index: 200;
+}
+.login__form_block {
+  margin-top: 10px;
+}
+
+.auth__bg {
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+}
+
+.auth__title {
+  position: relative;
+  z-index: 100;
+  font-size: 36px;
+  line-height: 40px;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.auth__bg {
+}
+
+.login__form_block_btns {
+  text-align: center;
+}
+
+.login__form_erorr {
+  display: block;
+  color: red;
+  margin-top: 5px;
+}

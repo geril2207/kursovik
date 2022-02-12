@@ -1,0 +1,6 @@
+/* pages */
+@import './pages/main.css';
+@import './pages/login.css';
+
+/* media */
+@import './media/index.css';
