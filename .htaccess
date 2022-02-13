@@ -2,3 +2,4 @@ ErrorDocument 404 http://kurs/404.php
 Options All -Indexes
 RedirectMatch 403 ^/pages/.*$
 RedirectMatch 403 ^/components/.*$
+RedirectMatch 403 ^/helpers/.*$

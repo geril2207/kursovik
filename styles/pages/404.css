@@ -1,0 +1,21 @@
+.not__found {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.not__found_link_wrapper {
+  text-align: center;
+}
+.not__found_link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  background: black;
+  border-radius: 15px;
+  margin-top: 20px;
+}

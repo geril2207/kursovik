@@ -3,7 +3,7 @@
         <div class="footer__inner">
             <div class="footer__left">
                 <h2 class="footer__title">Pulse-fit</h2>
-                <h4 class="copyright">© 2021 Bсе права защищены</h4>
+                <h4 class="copyright">© 2022 Bсе права защищены</h4>
             </div>
             <div class="footer__contacts">
                 <img src="./img/inst.svg" alt="" />

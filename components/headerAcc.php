@@ -1,10 +1,3 @@
-<?php
-$accLink = '../login.php';
-if (isset($_SESSION['login'])) {
-    $accLink = '../account.php';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -12,7 +5,7 @@ if (isset($_SESSION['login'])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Аккаунт</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
@@ -31,21 +24,11 @@ if (isset($_SESSION['login'])) {
                             Pulse-fit
                         </div>
                     </div>
-                    <div class="header__nav">
-                        <div class="header__nav_item">
-                            <a class="header__nav_item_acc_link" href="./logout.php">>Выйти</a>
+                    <div class="account__nav">
+                        <div class="account__nav_item">
+                            <a class="header__nav_item_acc_link" href="./logout.php">Выйти</a>
                         </div>
-                        <div class="burger__close">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="burger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
                     </div>
                 </div>
-            </div>
         </header>
     </div>

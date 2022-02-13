@@ -1,4 +1,8 @@
 <?php
 include './components/db.php';
 
-var_dump($_SESSION);
+if (!isset($_SESSION['auth'])) {
+    include './helpers/redirect.php';
+    redirect('./');
+}
+include './components/headerAcc.php';
