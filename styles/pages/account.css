@@ -1,0 +1,14 @@
+.acc__inner {
+  display: flex;
+}
+.acc__body {
+  margin-top: 200px;
+}
+
+.profile__input_section {
+  margin-top: 20px;
+}
+
+.profile__btn_section {
+  text-align: center;
+}

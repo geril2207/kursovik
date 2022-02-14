@@ -1,0 +1,13 @@
+.acc__sidebar {
+  border-right: 3px solid black;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.acc__content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

@@ -2,6 +2,27 @@
 @import './pages/main.css';
 @import './pages/login.css';
 @import './pages/404.css';
+@import './pages/account.css';
 
+/* Components */
+@import './components/accSidebar.css';
+@import './components/headerAcc.css';
 /* media */
 @import './media/index.css';
+
+.custom__button {
+  padding: 5px 15px;
+  background: black;
+  border-radius: 10px;
+  font-size: 24px;
+  color: white;
+  border: 2px solid black;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.custom__button:hover {
+  color: black;
+  background: white;
+}

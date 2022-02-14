@@ -5,7 +5,7 @@
   .group__pulse img {
     width: 245px;
   }
-  .popup__input {
+  .custom__input {
     padding: 5px;
     font-size: 20px;
     margin-top: 10px;
@@ -723,7 +723,7 @@
   .attention {
     font-size: 10px;
   }
-  .popup__input {
+  .custom__input {
     font-size: 16px;
   }
   .accept input {

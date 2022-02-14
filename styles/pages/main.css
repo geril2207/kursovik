@@ -81,6 +81,10 @@ body {
   margin-left: 20px;
 }
 
+.header__mb {
+  margin-bottom: 100px;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -551,7 +555,7 @@ body {
   top: 100px;
   height: 230px !important;
 }
-.popup__input {
+.custom__input {
   border: none;
   border-bottom: 3px solid #fcf322;
   padding: 10px;

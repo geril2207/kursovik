@@ -23,10 +23,10 @@
                 </div>
                 <form action="../login.php" method="post">
                     <div class="login__form_block">
-                        <input class="popup__input" type="text" name="login" placeholder="Логин" required>
+                        <input class="custom__input" type="text" name="login" placeholder="Логин" required>
                     </div>
                     <div class="login__form_block">
-                        <input class="popup__input" type="password" name="password" placeholder="Пароль" required>
+                        <input class="custom__input" type="password" name="password" placeholder="Пароль" required>
                     </div>
                     <?php if (isset($logError)) echo '<span class="login__form_erorr">Логин или пароль неверны</span>' ?>
                     <div class="login__form_block">

@@ -278,9 +278,9 @@
         <h3 class="subtitle popup__subtitle">абонемента</h3>
     </div>
     <form action="">
-        <input type="text" class="popup__input input__name" placeholder="Имя" />
-        <input type="tel" class="popup__input input__tel" placeholder="Телефон" />
-        <input type="email" class="popup__input input__email" placeholder="E-mail" />
+        <input type="text" class="custom__input input__name" placeholder="Имя" />
+        <input type="tel" class="custom__input input__tel" placeholder="Телефон" />
+        <input type="email" class="custom__input input__email" placeholder="E-mail" />
         <div class="accept">
             <input type="checkbox" name="" id="" />
             Я принимаю условия пользовательского соглашения
