@@ -7,7 +7,7 @@ if (isset($_SESSION['auth'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './components/db.php';
     include './helpers/query.php';
-    $sql = getUserQuery(mysqli_real_escape_string($conn, $_POST['login']));
+    $sql = getUserQuery(mysqli_real_escape_string($conn, $_POST['login']), 'login');
     $result = mysqli_query($conn, $sql);
     if (!$result) {
         echo mysqli_error($conn);
@@ -18,6 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include './helpers/redirect.php';
             $_SESSION['auth'] = true;
             $_SESSION['login'] = $user['login'];
+            $_SESSION['id'] = $user['id'];
             $_SESSION['type'] = $user['type'];
             $_SESSION['email'] = $user['email'];
             redirect('./account.php');

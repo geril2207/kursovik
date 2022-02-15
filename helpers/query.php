@@ -1,6 +1,6 @@
 <?php
 
-function getUserQuery($login)
+function getUserQuery($id, $param)
 {
-    return "SELECT * FROM users Where login = '" . $login . "'";;
+    return "SELECT * FROM users Where $param = '" . $id . "'";;
 }

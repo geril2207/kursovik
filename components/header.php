@@ -1,7 +1,7 @@
 <?php
 $accLink = '../login.php';
 if (isset($_SESSION['auth'])) {
-    $accLink = '../account.php';
+    $accLink = './profile.php';
 }
 ?>
 

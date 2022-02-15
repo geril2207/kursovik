@@ -18,7 +18,6 @@ body {
 }
 
 .header {
-  background-color: #fcf322;
   border-bottom: 3px solid #000000;
 }
 .header__container {
@@ -562,6 +561,12 @@ body {
   font-size: 24px;
   width: 100%;
   margin-top: 15px;
+  outline: none;
+  transition: all .15s linear;
+}
+
+.custom__input:focus {
+  border-bottom: 3px solid black;
 }
 
 .accept {
