@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['auth'])) {
     include './helpers/redirect.php';
-    redirect('./account.php');
+    redirect('./profile.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './components/db.php';

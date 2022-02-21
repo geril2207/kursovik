@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&family=Roboto:ital,wght@0,400;1,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="./styles/index.css" />
 </head>
 
 <body>

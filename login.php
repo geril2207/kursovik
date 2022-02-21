@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION['auth'])) {
     include './helpers/redirect.php';
-    redirect('./account.php');
+    redirect('./profile.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     include './components/db.php';
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['id'] = $user['id'];
             $_SESSION['type'] = $user['type'];
             $_SESSION['email'] = $user['email'];
-            redirect('./account.php');
+            redirect('./profile.php');
         } else {
             $logError = true;
             include './pages/loginPage.php';

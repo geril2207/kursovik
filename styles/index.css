@@ -3,6 +3,7 @@
 @import './pages/login.css';
 @import './pages/404.css';
 @import './pages/account.css';
+@import './pages/abonement.css';
 
 /* Components */
 @import './components/accSidebar.css';

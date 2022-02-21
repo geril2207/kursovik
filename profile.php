@@ -2,23 +2,25 @@
 include './components/db.php';
 include './helpers/query.php';
 $errors = false;
-var_dump($_SERVER["REQUEST_METHOD"]);
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
+    include_once './helpers/redirect.php';
     $updateSql;
-    if (isset($_POST["new_password"]) && $_POST["new_password"] !== '') {
+    if (isset($_POST["old_password"]) && $_POST["old_password"] !== '') {
         $userSqlCheckPass = getUserQuery($_SESSION['id'], 'id');
         $result = mysqli_query($conn, $userSqlCheckPass);
         $userDataPass = mysqli_fetch_assoc($result);
         var_dump(password_verify($_POST["new_password"], $userDataPass["password"]));
-        if (password_verify($_POST["new_password"], $userDataPass["password"])) {
-            $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',password = '" . password_hash(mysqli_real_escape_string($conn, $_POST["login"]), PASSWORD_BCRYPT)  . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
+        if (password_verify($_POST["old_password"], $userDataPass["password"])) {
+            $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',password = '" . password_hash(mysqli_real_escape_string($conn, $_POST["new_password"]), PASSWORD_BCRYPT)  . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
             $updateResult = mysqli_query($conn, $updateSql);
+            redirect('./profile.php');
         } else {
             $errors = "Старый пароль неверный";
         }
     } else {
         $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
         $updateResult = mysqli_query($conn, $updateSql);
+        redirect('./profile.php');
     }
 }
 $userSql = getUserQuery($_SESSION['id'], 'id');
@@ -45,7 +47,7 @@ $userData = mysqli_fetch_assoc($result)
             include './components/accSidebar.php';
             ?>
             <div class="acc__content">
-                <form id="form" action="profile.php" method="POST">
+                <form class="acc__form" id="form" action="profile.php" method="POST">
                     <input name="user_id" type="hidden" value=<?php echo $userData["id"] ?>>
                     <div>
                         <img src="" alt="Аватар">
@@ -53,12 +55,12 @@ $userData = mysqli_fetch_assoc($result)
                     </div>
                     <h2>Личная информация</h2>
                     <div class="profile__input_section">
-                        <h4>Имя</h4>
-                        <input class="custom__input" name="firstname" type="text" placeholder="Введите имя" value=<?php echo $userData["firstname"] ?>>
-                    </div>
-                    <div class="profile__input_section">
                         <h4>Фамилия</h4>
                         <input class="custom__input" name="lastname" type="text" placeholder="Введите фамилию" value=<?php echo $userData["lastname"] ?>>
+                    </div>
+                    <div class="profile__input_section">
+                        <h4>Имя</h4>
+                        <input class="custom__input" name="firstname" type="text" placeholder="Введите имя" value=<?php echo $userData["firstname"] ?>>
                     </div>
                     <div class="profile__input_section">
                         <h4>Отчество</h4>
