@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './helpers/notAuthRedirect.php';
 include './components/headerAcc.php';
 
 ?>

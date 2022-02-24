@@ -4,6 +4,8 @@
 @import './pages/404.css';
 @import './pages/account.css';
 @import './pages/abonement.css';
+@import './pages/record.css';
+@import './pages/coach.css';
 
 /* Components */
 @import './components/accSidebar.css';
@@ -20,7 +22,6 @@
   border: 2px solid black;
   transition: all 0.3s linear;
   cursor: pointer;
-  margin-bottom: 20px;
 }
 
 .custom__button:hover {

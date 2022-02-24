@@ -1,5 +1,6 @@
 <?php
 include './components/db.php';
+include './helpers/notAuthRedirect.php';
 include './helpers/query.php';
 $errors = false;
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
@@ -30,10 +31,6 @@ $result = mysqli_query($conn, $userSql);
 
 
 
-if (!isset($_SESSION['auth'])) {
-    include './helpers/redirect.php';
-    redirect('./');
-}
 include './components/headerAcc.php';
 
 $userData = mysqli_fetch_assoc($result)
@@ -49,10 +46,6 @@ $userData = mysqli_fetch_assoc($result)
             <div class="acc__content">
                 <form class="acc__form" id="form" action="profile.php" method="POST">
                     <input name="user_id" type="hidden" value=<?php echo $userData["id"] ?>>
-                    <div>
-                        <img src="" alt="Аватар">
-                        <input type="file" placeholder="Загрузите аватар">
-                    </div>
                     <h2>Личная информация</h2>
                     <div class="profile__input_section">
                         <h4>Фамилия</h4>
@@ -91,6 +84,3 @@ $userData = mysqli_fetch_assoc($result)
     </div>
 </div>
 <script src="./js/formValidation.js"></script>
-
-
-<?php

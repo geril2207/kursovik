@@ -17,16 +17,16 @@
         <header class="header">
             <div class="header__container">
                 <div class="header__inner">
-                    <div class="header__logo">
-                        <img src="./img/logo-border.svg" alt="" class="header__circle" />
+                    <a class="header__logo" href="./">
+                        <img src="./img/static/logo-border.svg" alt="" class="header__circle" />
                         <div class="header__logo_item">
-                            <img src="./img/logo.svg" alt="" class="header__logo__item_img" />
+                            <img src="./img/static/logo.svg" alt="" class="header__logo__item_img" />
                             Pulse-fit
                         </div>
-                    </div>
+                    </a>
                     <div class="account__nav">
                         <div class="account__nav_item">
-                            <a class="header__nav_item_acc_link" href="./logout.php">Выйти</a>
+                            <a class="header__nav_item_acc_link custom__button" href="./logout.php">Выйти</a>
                         </div>
                     </div>
                 </div>

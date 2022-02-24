@@ -1,0 +1,23 @@
+.coaches__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  column-gap: 100px;
+  row-gap: 20px;
+}
+
+.coaches__item_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coaches__item_wrapper img {
+  max-width: 250px;
+}
+.coaches__item_link {
+  margin-top: 20px;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}

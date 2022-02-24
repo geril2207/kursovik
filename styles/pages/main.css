@@ -33,6 +33,8 @@ body {
 .header__logo {
   margin: 10px 0;
   position: relative;
+  display: block;
+  color: inherit;
 }
 .header__circle {
   animation: rotation 10s linear infinite;
@@ -172,7 +174,7 @@ body {
 .why {
   width: 100%;
   padding-top: 60px;
-  background: top no-repeat url(./img/why-bg.jpg);
+  background: top no-repeat url(./img/static/why-bg.jpg);
   background-size: cover;
   font-weight: 500;
   position: relative;
@@ -469,20 +471,40 @@ body {
   margin-left: 25px;
 }
 
-.popup {
-  max-width: 600px;
-  width: 100%;
+.popup__background {
   position: fixed;
-  top: 68%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s linear;
+}
+
+.popup__background_active {
+  visibility: visible;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.267);
+}
+
+.popup {
+  max-width: 450px;
+  width: 100%;
   z-index: 100;
-  left: 50%;
-  transform: translate(-50%, -70%);
   background: #ffffff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   overflow: hidden;
   padding: 20px;
+  position: relative;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(-20%);
+  transition: all 0.2s linear;
 }
 
 .popup__close {
@@ -518,9 +540,8 @@ body {
 
 .popup__active {
   opacity: 1;
-  top: 71%;
+  transform: none;
   visibility: visible;
-  transition: opacity 0.4s linear, top 0.4s linear;
 }
 .popup__title {
   font-weight: 500;
@@ -561,7 +582,7 @@ body {
   width: 100%;
   margin-top: 15px;
   outline: none;
-  transition: all .15s linear;
+  transition: all 0.15s linear;
 }
 
 .custom__input:focus {

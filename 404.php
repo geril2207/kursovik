@@ -18,9 +18,9 @@
             <div class="header__container">
                 <div class="header__inner">
                     <div class="header__logo">
-                        <img src="./img/logo-border.svg" alt="" class="header__circle" />
+                        <img src="./img/static/logo-border.svg" alt="" class="header__circle" />
                         <div class="header__logo_item">
-                            <img src="./img/logo.svg" alt="" class="header__logo__item_img" />
+                            <img src="./img/static/logo.svg" alt="" class="header__logo__item_img" />
                             Pulse-fit
                         </div>
                     </div>

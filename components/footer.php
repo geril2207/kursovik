@@ -6,9 +6,9 @@
                 <h4 class="copyright">© 2022 Bсе права защищены</h4>
             </div>
             <div class="footer__contacts">
-                <img src="./img/inst.svg" alt="" />
-                <img src="./img/teleg.svg" alt="" />
-                <img src="./img/vk.svg" alt="" />
+                <img src="./img/static/inst.svg" alt="" />
+                <img src="./img/static/teleg.svg" alt="" />
+                <img src="./img/static/vk.svg" alt="" />
             </div>
             <div class="footer__adress">
                 <a href="tel:+74951821470">+7 (495) 182-14-70</a>

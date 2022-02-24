@@ -25,9 +25,9 @@ if (isset($_SESSION['auth'])) {
             <div class="header__container">
                 <div class="header__inner">
                     <div class="header__logo">
-                        <img src="./img/logo-border.svg" alt="" class="header__circle" />
+                        <img src="./img/static/logo-border.svg" alt="" class="header__circle" />
                         <div class="header__logo_item">
-                            <img src="./img/logo.svg" alt="" class="header__logo__item_img" />
+                            <img src="./img/static/logo.svg" alt="" class="header__logo__item_img" />
                             Pulse-fit
                         </div>
                     </div>
@@ -45,7 +45,7 @@ if (isset($_SESSION['auth'])) {
 
                         </div>
                         <div class="header__nav_item">
-                            <a class="header__nav_item_acc_link" href=<?php echo $accLink ?>>Личный кабинет</a>
+                            <a class="header__nav_item_acc_link custom__button" href=<?php echo $accLink ?>>Личный кабинет</a>
                         </div>
                         <div class="burger__close">
                             <span></span>

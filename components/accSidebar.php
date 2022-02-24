@@ -5,7 +5,7 @@
         <a class="acc__sidebar_item" href="./abonement.php">
             Абонемент
         </a>
-        <a class="acc__sidebar_item" href="./entry.php">
+        <a class="acc__sidebar_item" href="./coach_list.php">
             Запись к тренеру
         </a>
         <?php
