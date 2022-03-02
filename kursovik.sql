@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 21 2022 г., 22:29
+-- Время создания: Мар 02 2022 г., 21:57
 -- Версия сервера: 5.6.47
 -- Версия PHP: 8.0.1
 
@@ -56,6 +56,40 @@ CREATE TABLE `coaches` (
   `price` int(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `coaches`
+--
+
+INSERT INTO `coaches` (`id`, `name`, `img`, `price`) VALUES
+(1, 'ИЛЮШКИНА НАДЕЖДА', '1.png', 650),
+(2, 'МАСИМОВ ТУРАЛ', '2.png', NULL),
+(5, 'ГАРАЖА ЕВГЕНИЙ', '3.png', NULL),
+(6, 'КАРЕВ СЕРГЕЙ', '4.png', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `records`
+--
+
+CREATE TABLE `records` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coach_id` int(30) NOT NULL,
+  `user_id` int(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `records`
+--
+
+INSERT INTO `records` (`id`, `date`, `time`, `coach_id`, `user_id`) VALUES
+(1, '2022-02-27', '11:00', 1, 133),
+(2, '2022-02-28', '13:00', 1, 133),
+(3, '2022-02-25', '13:00', 1, 133),
+(4, '2022-03-04', '17:00', 1, 133);
+
 -- --------------------------------------------------------
 
 --
@@ -95,7 +129,9 @@ INSERT INTO `users` (`id`, `login`, `email`, `password`, `firstname`, `lastname`
 (126, 'Esse quis nesciunt ', 'deqefoqo@mailinator.com', '$2y$10$Zjie3wq4lA9q5Nes.AtcJugG37XDj9OzHemrCKONvPAZhZWPgnIEC', '', '', '', 'user'),
 (127, 'ilya222', 'jekyk@mailinator.com', '$2y$10$5n6QTWBoFVyigXfZeZR9cuypZ3xsuTOud6aXngOs1YoWxRLI7JVty', 'Keith', 'Maxwell', 'Dejesus', 'user'),
 (130, 'a', 'nido@mailinator.com', '$2y$10$UnUaoi6RACCdzsOAgV1ujOj7.Xs1HedFNEnq83JQnI/FFTAeGkjC.', 'Chardeddd', 'Kramerdasd', 'Jenkins', 'user'),
-(131, 'test', 'test@mail.ru', '$2y$10$QQbH/sRKBrzLqOjcvICdhOJo09l9SJOzJZbTeX6brcuee3uoVch2u', 'Илья', 'Гергерт', 'Максимович', 'user');
+(131, 'test', 'test@mail.ru', '$2y$10$QQbH/sRKBrzLqOjcvICdhOJo09l9SJOzJZbTeX6brcuee3uoVch2u', 'Илья', 'Гергерт', 'Максимович', 'user'),
+(133, 'g', 'g@mail.ru', '$2y$10$2QSASazF4tluRbHohFV6EuWF1Q/KaI9ELQFsIlq/9BTZM.JRf1sPS', 'Ilya', 'Gergert', 'Maksimovich', 'user'),
+(134, 'admin', 'admin@mail.ru', '$2y$10$gWmTnDSjF6oJU5kS7tRsBeS2BmhNGM6MlJH0V/xg.0WsBYH/1L2xS', '', '', '', 'admin');
 
 --
 -- Индексы сохранённых таблиц
@@ -112,6 +148,14 @@ ALTER TABLE `abonements`
 --
 ALTER TABLE `coaches`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `records`
+--
+ALTER TABLE `records`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `coach_id` (`coach_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Индексы таблицы `users`
@@ -135,13 +179,30 @@ ALTER TABLE `abonements`
 -- AUTO_INCREMENT для таблицы `coaches`
 --
 ALTER TABLE `coaches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT для таблицы `records`
+--
+ALTER TABLE `records`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `records`
+--
+ALTER TABLE `records`
+  ADD CONSTRAINT `records_ibfk_1` FOREIGN KEY (`coach_id`) REFERENCES `coaches` (`id`),
+  ADD CONSTRAINT `records_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
