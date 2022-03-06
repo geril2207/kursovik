@@ -1,6 +1,6 @@
 <?php
 
-function getUserQuery($id, $param)
+function getUserQuery($id, $param = "id")
 {
     return "SELECT * FROM users Where $param = '" . $id . "'";
 }

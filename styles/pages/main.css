@@ -82,7 +82,7 @@ body {
 }
 
 .header__mb {
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 @keyframes rotation {
@@ -174,7 +174,7 @@ body {
 .why {
   width: 100%;
   padding-top: 60px;
-  background: top no-repeat url(./img/static/why-bg.jpg);
+  background: top no-repeat url(../../img/static/why-bg.jpg);
   background-size: cover;
   font-weight: 500;
   position: relative;

@@ -1,9 +1,7 @@
 .acc__inner {
   display: flex;
 }
-.acc__body {
-  margin-top: 200px;
-}
+
 
 .profile__input_section {
   margin-top: 20px;
@@ -13,6 +11,7 @@
   text-align: center;
 }
 
-.acc__form{
+.acc__form {
+  width: 100%;
   max-width: 700px;
 }

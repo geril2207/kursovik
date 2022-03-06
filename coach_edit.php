@@ -52,8 +52,11 @@ foreach ($resultDates as $key => $value) {
             <?php
             include './components/accSidebar.php';
             ?>
-            
+
             <div class="acc__content">
+                <div>
+                    <h3>Редактирование</h3>
+                </div>
                 <div class="coach__back_link_wrapper">
                     <a href="./coach_list.php">Назад</a>
                     <?php
@@ -68,36 +71,6 @@ foreach ($resultDates as $key => $value) {
                         <h3><?php echo $name ?></h3>
                         <img src=<?php echo "./img/coaches/$imgStr" ?> alt='Картинка'>
                         <h4>Стоимость тренировки(полтора часа): <?php echo $price ?>&#8381;</h4>
-                        <h5>Выберите дату тренировки</h5>
-                        <select class="coach__select_time" placeholder="Выберите дату" def>
-                            <?php foreach ($dates as $key => $value) {
-                                $valueDate = $value["full_date"];
-                                $optionStr = $dayFromEnglishToRussian[$value["weekday"]] . ' ' . $value["mday"] . ' ' . $months_name[$value["mon"] - 1];
-                                echo "<option value=\"$valueDate\" >$optionStr</option>";
-                            } ?>
-                        </select>
-                        <div class="coach__times_list">
-                            <?php
-                            foreach ($dates as $dateKey => $dateValue) {
-                                $dataDay = $dateValue["full_date"];
-                                if ($dateKey != array_key_first($dates)) {
-                                    echo "<div class=\"coach_times_item_wrapper coach_times_item_wrapper_hidden\" data-day=\"$dataDay\">";
-                                } else echo "<div class=\"coach_times_item_wrapper\" data-day=\"$dataDay\">";
-                                if (isset($timesDisabled[$dataDay])) {
-
-                                    foreach ($times as $timeKey => $timeValue) {
-                                        $itemClass = array_search($timeValue, $timesDisabled[$dataDay]) === false ? "coach_times_item" : "coach_times_item coach_times_item_disabled";
-                                        echo "<div class=\"$itemClass\" data-time=\"$timeValue\">$timeValue</div>";
-                                    }
-                                } else {
-                                    foreach ($times as $timeKey => $timeValue) {
-                                        echo "<div class=\"coach_times_item\" data-time=\"$timeValue\">$timeValue</div>";
-                                    }
-                                }
-                                echo "</div>";
-                            } ?>
-
-                        </div>
 
                     </div>
                 </div>

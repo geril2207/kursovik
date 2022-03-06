@@ -19,9 +19,13 @@ function showTab(e) {
 select.addEventListener('change', showTab)
 
 window.addEventListener('click', (e) => {
+  if (e.target.closest('.coach_times_item_disabled')) {
+    return
+  }
   if (e.target.closest('.coach_times_item')) {
     e.preventDefault()
     popupDate.textContent += currentDate
+    currentTime = e.target.dataset.time
     popupTime.textContent += e.target.dataset.time
     popup.classList.add('popup__active')
     return popupBack.classList.add('popup__background_active')
@@ -37,4 +41,25 @@ window.addEventListener('click', (e) => {
     popupDate.textContent = 'Дата:'
     popupTime.textContent = 'Время:'
   }
+})
+
+window.addEventListener('submit', async (e) => {
+  e.preventDefault()
+  let formData = new FormData()
+
+  formData.append('date', currentDate)
+  formData.append('time', currentTime)
+  formData.append('coach_id', coach_id.value)
+  const res = await fetch('./record.php', {
+    method: 'POST',
+    body: formData,
+  })
+  const resData = await res.json()
+
+  if (resData.success) {
+    alert('Вы успешно записаны')
+    console.log(1)
+    return document.location.reload()
+  }
+  return alert('Что-то пошло не так')
 })

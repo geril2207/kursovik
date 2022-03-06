@@ -13,4 +13,4 @@ session_start();
 
 
 
-$conn = mysqli_connect('localhost', 'root', 'root', 'kursovik');
+$conn = mysqli_connect('localhost', 'root', '', 'kursovik');

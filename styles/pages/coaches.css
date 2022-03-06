@@ -1,0 +1,84 @@
+.coaches__wrapper {
+  width: 100%;
+  max-width: 930px;
+  padding: 0 15px;
+}
+
+.coaches__table {
+  width: 100%;
+}
+.coach__list_btns_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.coach__list_btn {
+  border-radius: 5px;
+  font-size: 20px;
+}
+.coach__list_btn_edit {
+  display: block;
+  padding: 5px 10px;
+  background: #fcf322;
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+  transition: background 0.2s linear;
+  border: 2px solid #fcf322;
+}
+
+.coach__list_btn_edit:hover {
+  background: transparent;
+}
+.coach__list_btn_delete {
+  transition: background 0.2s linear;
+  border: 2px solid black;
+  padding: 5px 10px;
+  cursor: pointer;
+  background: black;
+  color: white;
+}
+
+.coach__list_btn_delete:hover {
+  color: black;
+  background: transparent;
+}
+
+.coaches__list_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+.coaches__list_header h3 {
+  font-size: 28px;
+}
+
+.coaches__list_add_link {
+  font-size: 20px !important;
+  text-decoration: none;
+  display: block;
+}
+
+.file_input {
+  display: block;
+  margin-top: 10px;
+  border: 2px solid #fcf322;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.coach_create_show_img {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.preview__img {
+  width: auto;
+  max-width: 700px;
+}

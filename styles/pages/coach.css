@@ -31,7 +31,7 @@
 .coach_times_item_disabled {
   background: rgb(165, 164, 164);
   border: 2px solid rgb(165, 164, 164);
-  cursor: default;
+  cursor: not-allowed;
 }
 .coach_times_item_disabled:hover {
   color: white;

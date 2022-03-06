@@ -6,6 +6,7 @@
 @import './pages/abonement.css';
 @import './pages/record.css';
 @import './pages/coach.css';
+@import './pages/coaches.css';
 
 /* Components */
 @import './components/accSidebar.css';
@@ -20,7 +21,7 @@
   font-size: 24px;
   color: white;
   border: 2px solid black;
-  transition: all 0.3s linear;
+  transition: all 0.2s linear;
   cursor: pointer;
 }
 
