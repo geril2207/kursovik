@@ -5,11 +5,9 @@ $name = "";
 $img = "";
 $price = "";
 $id = null;
-var_dump($_SERVER);
 if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
     include_once './helpers/redirect.php';
     $delete_id = $_REQUEST["id"];
-    var_dump($_REQUEST);
     // $coach_delete_query = "DELETE FROM coaches where id ="
 }
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
@@ -45,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
             }
         }
     } else {
-        $file_name = "default.jfif";
+        $file_name = "default.webp";
         if ($_FILES["img"]["name"] !== "" && $_FILES["img"]["tmp_name"] !== "") {
             $exploded_file_name = explode('.', $_FILES["img"]["name"]);
             $file_name = mktime(0) . '.' . $exploded_file_name[array_key_last($exploded_file_name)];
@@ -91,7 +89,6 @@ if (isset($_GET["id"]) && $_GET["id"] !== '') {
                     <h2>Создание тренера</h2>
                     <div class="profile__input_section">
                         <h4>Имя</h4>
-                        <?php var_dump($name) ?>
                         <input class="custom__input" name="name" type="text" required placeholder="Введите имя" value=<?= str_replace('"', '&quot;', $name) ?>>
                     </div>
                     <div class="profile__input_section">

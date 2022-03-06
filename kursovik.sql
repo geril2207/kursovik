@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 02 2022 г., 21:57
--- Версия сервера: 5.6.47
--- Версия PHP: 8.0.1
+-- Время создания: Мар 06 2022 г., 20:18
+-- Версия сервера: 8.0.24
+-- Версия PHP: 8.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `abonements` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -50,10 +50,10 @@ INSERT INTO `abonements` (`id`, `title`, `price`) VALUES
 --
 
 CREATE TABLE `coaches` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` int(30) DEFAULT NULL
+  `id` int NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -64,7 +64,7 @@ INSERT INTO `coaches` (`id`, `name`, `img`, `price`) VALUES
 (1, 'ИЛЮШКИНА НАДЕЖДА', '1.png', 650),
 (2, 'МАСИМОВ ТУРАЛ', '2.png', NULL),
 (5, 'ГАРАЖА ЕВГЕНИЙ', '3.png', NULL),
-(6, 'КАРЕВ СЕРГЕЙ', '4.png', NULL);
+(6, 'КАРЕВ СЕРГЕЙ', '4.png', 950);
 
 -- --------------------------------------------------------
 
@@ -73,11 +73,11 @@ INSERT INTO `coaches` (`id`, `name`, `img`, `price`) VALUES
 --
 
 CREATE TABLE `records` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `date` date NOT NULL,
-  `time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `coach_id` int(30) NOT NULL,
-  `user_id` int(30) NOT NULL
+  `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `coach_id` int NOT NULL,
+  `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -88,7 +88,26 @@ INSERT INTO `records` (`id`, `date`, `time`, `coach_id`, `user_id`) VALUES
 (1, '2022-02-27', '11:00', 1, 133),
 (2, '2022-02-28', '13:00', 1, 133),
 (3, '2022-02-25', '13:00', 1, 133),
-(4, '2022-03-04', '17:00', 1, 133);
+(4, '2022-03-04', '17:00', 1, 133),
+(5, '2022-03-03', '11:00', 1, 131),
+(6, '2022-03-03', '13:00', 1, 131),
+(7, '2022-03-08', '13:00', 1, 131),
+(8, '2022-03-08', '15:00', 1, 131),
+(9, '2022-03-03', '15:00', 1, 131),
+(10, '2022-03-03', '15:00', 1, 131),
+(11, '2022-03-03', '13:00', 1, 131),
+(12, '2022-03-03', '13:00', 1, 131),
+(13, '2022-03-03', '13:00', 1, 131),
+(14, '2022-03-08', '11:00', 1, 131),
+(15, '2022-03-03', '15:00', 6, 131),
+(16, '2022-03-09', '15:00', 6, 131),
+(17, '2022-03-08', '15:00', 6, 131),
+(18, '2022-03-07', '11:00', 6, 131),
+(19, '2022-03-07', '15:00', 6, 131),
+(20, '2022-03-07', '17:00', 1, 131),
+(21, '2022-03-07', '17:00', 1, 131),
+(22, '2022-03-07', '17:00', 1, 131),
+(23, '2022-03-10', '13:00', 6, 134);
 
 -- --------------------------------------------------------
 
@@ -97,14 +116,14 @@ INSERT INTO `records` (`id`, `date`, `time`, `coach_id`, `user_id`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `login` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `firstname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `surname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user'
+  `id` int NOT NULL,
+  `login` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `firstname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `surname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -173,25 +192,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `abonements`
 --
 ALTER TABLE `abonements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `coaches`
 --
 ALTER TABLE `coaches`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `records`
 --
 ALTER TABLE `records`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
