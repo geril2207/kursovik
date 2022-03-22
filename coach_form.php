@@ -2,14 +2,10 @@
 include_once './components/db.php';
 include './components/headerAcc.php';
 $name = "";
-$img = "";
+$img = null;
 $price = "";
 $id = null;
-if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
-    include_once './helpers/redirect.php';
-    $delete_id = $_REQUEST["id"];
-    // $coach_delete_query = "DELETE FROM coaches where id ="
-}
+
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     include_once './helpers/redirect.php';
     if (isset($_POST["coach_id"]) && $_POST["coach_id"] != null) {
@@ -103,7 +99,16 @@ if (isset($_GET["id"]) && $_GET["id"] !== '') {
                         <input id="file" value="123.jpg" name="img" type="file" hidden accept="image/*" placeholder="Введите стоимость">
                     </div>
 
-                    <div class="coach_create_show_img"></div>
+                    <div class="coach_create_show_img">
+                        <?php
+
+
+                        if ($img !== null) {
+                            echo "<img src=\"/img/coaches/$img\" alt=\"Картинка тренера\">";
+                        }
+                        
+                        ?>
+                    </div>
 
 
                     <div class="profile__input_section profile__btn_section">

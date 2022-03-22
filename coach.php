@@ -4,7 +4,7 @@ include './components/db.php';
 include './helpers/query.php';
 include './components/headerAcc.php';
 
-$dayFromEnglishToRussian = ["Monday" => "Пн", "Tuesday" => "Вт", "Wednesday" => "Ср", "Thursday" => "Чт", "Friday" => "Пт", "Saturday" => "Сб", "Sunday" => "Вс"];
+$dayFromEnglishToRussian = ["Monday" => "Понедельник", "Tuesday" => "Вторник", "Wednesday" => "Среда", "Thursday" => "Четверг", "Friday" => "Пятница", "Saturday" => "Суббота", "Sunday" => "Воскресенье"];
 $months_name = [
     'января', 'февраля', 'марта',
     'апреля', 'мая', 'июня',
@@ -63,7 +63,7 @@ foreach ($resultDates as $key => $value) {
                     $coachId = $resultCoaches["id"];
                     $price = $resultCoaches["price"];
                     ?>
-                    <div class="coaches__item_wrapper">
+                    <div class="coaches__item_wrapper coach__wrapper">
 
                         <h3><?php echo $name ?></h3>
                         <img src=<?php echo "./img/coaches/$imgStr" ?> alt='Картинка'>

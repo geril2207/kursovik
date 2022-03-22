@@ -1,0 +1,60 @@
+.abonement__personal_wrapper {
+  width: 300px;
+  padding: 20px;
+  height: 100px;
+  border-radius: 15px;
+  color: black;
+}
+.abonement__personal_content {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.abonement__personal_abonements_wrapper {
+  width: 100%;
+}
+
+.abonement__personal_abonements_title {
+}
+.abonement__personal_abonements_list {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: max-content;
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  row-gap: 15px;
+  column-gap: 15px;
+}
+.abonement__personal_abonements_title {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.abonement__personal_abonements_item {
+  border: 2px solid black;
+  text-align: center;
+  width: 100%;
+  max-width: 45%;
+  padding: 15px 0px;
+  background: #fcf322;
+  border-radius: 15px;
+}
+.abonement__personal_abonements_item_title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 30px;
+  margin-bottom: 5px;
+}
+.abonement__personal_abonements_item_price {
+  margin-bottom: 10px;
+}
+
+.abonement__body_wrapper {
+  width: 100%;
+}

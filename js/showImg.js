@@ -16,15 +16,13 @@ function handleFileSelect(evt) {
     reader.onload = (function (theFile) {
       return function (e) {
         // Render thumbnail.
-        var span = document.createElement('span')
-        span.innerHTML = [
+        previewImgContainer.innerHTML = [
           '<img class="preview__img" src="',
           e.target.result,
           '" title="',
           theFile.name,
           '"/>',
         ].join('')
-        previewImgContainer.insertBefore(span, null)
       }
     })(f)
 

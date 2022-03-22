@@ -31,7 +31,7 @@ $coachData = mysqli_fetch_all($result, MYSQLI_ASSOC)
                         <tr>
                             <td>Id</td>
                             <td>Имя</td>
-                            <td>Стоимость</td>
+                            <td>Стоимость тренировки</td>
                             <td></td>
                         </tr>
                     </thead>

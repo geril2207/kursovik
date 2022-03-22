@@ -27,5 +27,5 @@
 
 .custom__button:hover {
   color: black;
-  background: white;
+  background: transparent;
 }
