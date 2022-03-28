@@ -27,6 +27,14 @@ if (isset($repeatErrorType)) {
                     <h4 class="auth__title">Регистрация</h4>
                 </div>
                 <form id="form" action="../signup.php" method="post">
+                    <div class="fio__wrapper">
+                        <div class="login__form_block">
+                            <input class="custom__input" type="text" name="lastname" placeholder="Фамилия" required>
+                        </div>
+                        <div class="login__form_block">
+                            <input class="custom__input" type="text" name="firstname" placeholder="Имя" required>
+                        </div>
+                    </div>
                     <div class="login__form_block">
                         <input class="custom__input" type="text" name="login" placeholder="Логин" required>
                         <?php if ($error == "'login'") echo '<span class="login__form_erorr">Пользователь с таким логином уже существует</span>' ?>

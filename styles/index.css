@@ -7,6 +7,7 @@
 @import './pages/record.css';
 @import './pages/coach.css';
 @import './pages/coaches.css';
+@import './pages/signup.css';
 
 /* Components */
 @import './components/accSidebar.css';

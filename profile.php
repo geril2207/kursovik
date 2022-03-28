@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         $userDataPass = mysqli_fetch_assoc($result);
         var_dump(password_verify($_POST["new_password"], $userDataPass["password"]));
         if (password_verify($_POST["old_password"], $userDataPass["password"])) {
-            $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',password = '" . password_hash(mysqli_real_escape_string($conn, $_POST["new_password"]), PASSWORD_BCRYPT)  . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
+            $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',phone = '" . mysqli_real_escape_string($conn, $_POST["phone"]) . "',password = '" . password_hash(mysqli_real_escape_string($conn, $_POST["new_password"]), PASSWORD_BCRYPT)  . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
             $updateResult = mysqli_query($conn, $updateSql);
             redirect('./profile.php');
         } else {
             $errors = "Старый пароль неверный";
         }
     } else {
-        $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
+        $updateSql = "UPDATE users SET login = '" . mysqli_real_escape_string($conn, $_POST["login"]) . "',email = '" . mysqli_real_escape_string($conn, $_POST["email"]) . "',phone = '" . mysqli_real_escape_string($conn, $_POST["phone"]) . "',firstname = '" . mysqli_real_escape_string($conn, $_POST["firstname"]) . "',lastname = '" . mysqli_real_escape_string($conn, $_POST["lastname"]) . "',surname = '" . mysqli_real_escape_string($conn, $_POST["surname"]) . "' WHERE id =" . mysqli_real_escape_string($conn, $_POST["user_id"]) . "";
         $updateResult = mysqli_query($conn, $updateSql);
         redirect('./profile.php');
     }
@@ -66,6 +66,10 @@ $userData = mysqli_fetch_assoc($result)
                     <div class="profile__input_section">
                         <h4>Почта</h4>
                         <input class="custom__input" name="email" type="email" placeholder="Введите email" value=<?php echo $userData["email"] ?>>
+                    </div>
+                    <div class="profile__input_section">
+                        <h4>Телефон</h4>
+                        <input class="custom__input" name="phone" type="phone" placeholder="Введите телефон" pattern="s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" value=<?php echo $userData["phone"] ?>>
                     </div>
                     <div class="profile__input_section">
                         <h4>Изменение пароля</h4>

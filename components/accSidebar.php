@@ -5,12 +5,12 @@
         <a class="acc__sidebar_item" href="./abonement.php">
             Абонемент
         </a>
-        <a class="acc__sidebar_item" href="./coach_list.php">
+        <a class="acc__sidebar_item" href="./coaches_select_list.php">
             Запись к тренеру
         </a>
         <?php
         if ($_SESSION["type"] === 'admin') {
-            echo ' <a class="acc__sidebar_item" href="./coaches.php">
+            echo ' <a class="acc__sidebar_item" href="./coaches_edit_list.php">
                 Управление тренерами
             </a>';
         }

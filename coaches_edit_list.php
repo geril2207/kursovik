@@ -24,7 +24,7 @@ $coachData = mysqli_fetch_all($result, MYSQLI_ASSOC)
             <div class="acc__content coaches__wrapper">
                 <div class="coaches__list_header">
                     <h3>Список тренеров</h3>
-                    <a href="./coach_form.php" class="coaches__list_add_link custom__button">Добавить</a>
+                    <a href="./coach_edit.php" class="coaches__list_add_link custom__button">Добавить</a>
                 </div>
                 <table class="coaches__table">
                     <thead>
@@ -47,7 +47,7 @@ $coachData = mysqli_fetch_all($result, MYSQLI_ASSOC)
                             echo "<td>$price</td>";
                             echo "<td>
                             <div class=\"coach__list_btns_wrapper\">
-                    <a class=\"coach__list_btn coach__list_btn_edit\" href=\"./coach_form.php?id=$id\">Редактировать</a>
+                    <a class=\"coach__list_btn coach__list_btn_edit\" href=\"./coach_edit.php?id=$id\">Редактировать</a>
                     <div class=\"coach__list_btn coach__list_btn_delete\" data-coachId=\"$id\" data-coachName=\"$name\">Удалить</div>
                 </div>
                             

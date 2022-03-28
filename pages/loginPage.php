@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
                 </div>
                 <form action="../login.php" method="post">
                     <div class="login__form_block">
-                        <input class="custom__input" type="text" name="login" placeholder="Логин" required>
+                        <input <?php if (isset($logError)) echo "value =" . $_POST["login"] ?> class="custom__input" type="text" name="login" placeholder="Логин" required>
                     </div>
                     <div class="login__form_block">
                         <input class="custom__input" type="password" name="password" placeholder="Пароль" required>

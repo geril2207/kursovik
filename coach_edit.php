@@ -1,50 +1,77 @@
 <?php
-include './components/db.php';
-
-include './helpers/query.php';
+include_once './components/db.php';
 include './components/headerAcc.php';
+$name = "";
+$img = null;
+$price = "";
+$id = null;
 
-$dayFromEnglishToRussian = ["Monday" => "Пн", "Tuesday" => "Вт", "Wednesday" => "Ср", "Thursday" => "Чт", "Friday" => "Пт", "Saturday" => "Сб", "Sunday" => "Вс"];
-$months_name = [
-    'января', 'февраля', 'марта',
-    'апреля', 'мая', 'июня',
-    'июля', 'августа', 'сентября',
-    'октября', 'ноября', 'декабря'
-];
-
-
-$times = ['11:00', '13:00', '15:00', '17:00'];
-$coachQuery = mysqli_query($conn, getCoachesQuery($_GET["id"]));
-$resultCoaches = mysqli_fetch_assoc($coachQuery);
-
-$dates = [];
-$today =  getdate();
-for ($i = 1; count($dates) !== 7; $i++) {
-    $dateStamp = mktime(0, 0, 0, $today["mon"], $today["mday"] + $i, $today["year"]);
-    $date = getdate($dateStamp);
-    $date["full_date"] = date('Y-m-d', $dateStamp);
-    if ($date["wday"] == 0 || $date["wday"] == 6) continue;
-    $dates[$i] = $date;
-}
-
-
-
-$datesQuery = mysqli_query($conn, getCoachDates($_GET["id"]));
-$resultDates = mysqli_fetch_all($datesQuery, MYSQLI_ASSOC);
-
-$timesDisabled = [];
-
-
-foreach ($resultDates as $key => $value) {
-    $timeDisabled = [];
-    if (isset($timesDisabled[$value["date"]])) {
-
-        array_push($timesDisabled[$value["date"]], $value["time"]);
-        continue;
+if ($_SERVER["REQUEST_METHOD"] === 'POST') {
+    include_once './helpers/redirect.php';
+    if (isset($_POST["coach_id"]) && $_POST["coach_id"] != null) {
+        include_once './helpers/query.php';
+        $userQuery = getCoachesQuery($_POST["coach_id"]);
+        $resultQuery = mysqli_query($conn, $userQuery);
+        $result = mysqli_fetch_assoc($resultQuery);
+        $coach_id = mysqli_real_escape_string($conn, $_POST["coach_id"]);
+        $name = mysqli_real_escape_string($conn, $_POST["name"]);
+        $price = mysqli_real_escape_string($conn, $_POST["price"]);
+        if ($_FILES["img"]["name"] !== "" && $_FILES["img"]["tmp_name"] !== "") {
+            $exploded_file_name = explode('.', $_FILES["img"]["name"]);
+            $file_name = mktime(0) . '.' . $exploded_file_name[array_key_last($exploded_file_name)];
+            move_uploaded_file($_FILES["img"]["tmp_name"], "./img/coaches/$file_name");
+            $old_file = $result["img"];
+            unlink("./img/coaches/$old_file");
+            $coach_update_query = "UPDATE coaches set name = \"$name\", img = \"$file_name\", price = \"$price\"  where id = \"$coach_id\"";
+            mysqli_query($conn, $coach_update_query);
+            if ($error = mysqli_error($conn)) {
+                echo "<script>alert(\"Что-то пошло не так $error\")</script>";
+            } else {
+                redirect('./coaches_edit_list.php');
+            }
+        } else {
+            $coach_update_query = "UPDATE coaches set name = \"$name\", price = \"$price\"  where id = \"$coach_id\"";
+            mysqli_query($conn, $coach_update_query);
+            if ($error = mysqli_error($conn)) {
+                echo "<script>alert(\"Что-то пошло не так $error\")</script>";
+            } else {
+                redirect('./coaches_edit_list.php');
+            }
+        }
+    } else {
+        $file_name = "default.webp";
+        if ($_FILES["img"]["name"] !== "" && $_FILES["img"]["tmp_name"] !== "") {
+            $exploded_file_name = explode('.', $_FILES["img"]["name"]);
+            $file_name = mktime(0) . '.' . $exploded_file_name[array_key_last($exploded_file_name)];
+            move_uploaded_file($_FILES["img"]["tmp_name"], "./img/coaches/$file_name");
+        }
+        $name = mysqli_real_escape_string($conn, $_POST["name"]);
+        $price = mysqli_real_escape_string($conn, $_POST["price"]);
+        $add_coach_query = "INSERT INTO coaches(name, img, price) VALUES (\"$name\", \"$file_name\", \"$price\")";
+        $result = mysqli_query($conn, $add_coach_query);
+        if ($error = mysqli_error($conn)) {
+            echo "<script>alert(\"Что-то пошло не так $error\")</script>";
+        } else {
+            redirect('./coaches_edit_list.php');
+        }
     }
-    $timesDisabled[$value["date"]] = [$value["time"]];
 }
+
+
+if (isset($_GET["id"]) && $_GET["id"] !== '') {
+    include_once './helpers/query.php';
+    $userQuery = getCoachesQuery($_GET["id"]);
+    $resultQuery = mysqli_query($conn, $userQuery);
+    $result = mysqli_fetch_assoc($resultQuery);
+    $name = $result["name"];
+    $name = str_replace(" ", "&nbsp;", $name);
+    $img = $result["img"];
+    $price = $result["price"];
+    $id = $result["id"];
+}
+
 ?>
+<script src="./js/showImg.js" defer></script>
 
 <div class="acc__body">
     <div class="container">
@@ -52,52 +79,44 @@ foreach ($resultDates as $key => $value) {
             <?php
             include './components/accSidebar.php';
             ?>
-
             <div class="acc__content">
-                <div>
-                    <h3>Редактирование</h3>
-                </div>
-                <div class="coach__back_link_wrapper">
-                    <a href="./coach_list.php">Назад</a>
-                    <?php
-
-                    $imgStr = $resultCoaches["img"];
-                    $name = $resultCoaches["name"];
-                    $coachId = $resultCoaches["id"];
-                    $price = $resultCoaches["price"];
-                    ?>
-                    <div class="coaches__item_wrapper">
-
-                        <h3><?php echo $name ?></h3>
-                        <img src=<?php echo "./img/coaches/$imgStr" ?> alt='Картинка'>
-                        <h4>Стоимость тренировки(полтора часа): <?php echo $price ?>&#8381;</h4>
-
+                <form class="acc__form" id="form" action="./coach_edit.php" method="POST" enctype="multipart/form-data">
+                    <input name="coach_id" type="hidden" value=<?php echo $id ?>>
+                    <h2><?php echo $id == null ?  "Создание" : "Изменение"  ?> тренера</h2>
+                    <div class="profile__input_section">
+                        <h4>Имя</h4>
+                        <input class="custom__input" name="name" type="text" required placeholder="Введите имя" value=<?= str_replace('"', '&quot;', $name) ?>>
                     </div>
-                </div>
+                    <div class="profile__input_section">
+                        <h4>Стоимость тренировки</h4>
+                        <input class="custom__input" name="price" type="number" required placeholder="Введите стоимость" value=<?php echo $price ?>>
+                    </div>
+
+                    <div class="profile__input_section">
+                        <h4>Фото</h4>
+                        <label class="file_input" for="file">Выберите файл</label>
+
+                        <input id="file" value="123.jpg" name="img" type="file" hidden accept="image/*" placeholder="Введите стоимость">
+                    </div>
+
+                    <div class="coach_create_show_img">
+                        <?php
+
+
+                        if ($img !== null) {
+                            echo "<img src=\"/img/coaches/$img\" alt=\"Картинка тренера\">";
+                        }
+
+                        ?>
+                    </div>
+
+
+                    <div class="profile__input_section profile__btn_section">
+                        <button class="custom__button" type="submit">Сохранить</button>
+                    </div>
+
+                </form>
             </div>
         </div>
     </div>
-
 </div>
-<div class="popup__background">
-
-    <div class="popup">
-        <div class="popup__close">
-            <span></span>
-            <span></span>
-        </div>
-        <form id="coach_form" class="popup_record_form" action="./record.php" method="POST">
-            <input id="coach_id" value=<?php echo $resultCoaches["id"] ?> type="hidden" name="coach_id">
-            <div>
-                <h2>Подтвердите запись к тренеру</h2>
-            </div>
-            <div class="poup__date_value">Дата:</div>
-            <div class="poup__time_value">Время:</div>
-            <div class="popup__btn_wrapper">
-                <button class="custom__button" type="submit">Подтвердить</button>
-                <button class="popup__close_btn custom__button" type="button">Отмена</button>
-            </div>
-        </form>
-    </div>
-</div>
-<script src="./js/coachTabs.js"></script>

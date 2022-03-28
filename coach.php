@@ -55,7 +55,7 @@ foreach ($resultDates as $key => $value) {
             
             <div class="acc__content">
                 <div class="coach__back_link_wrapper">
-                    <a href="./coach_list.php">Назад</a>
+                    <a href="./coaches_select_list.php">Назад</a>
                     <?php
 
                     $imgStr = $resultCoaches["img"];

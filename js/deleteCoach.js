@@ -35,7 +35,6 @@ window.addEventListener('submit', async (e) => {
   const resData = await res.json()
 
   if (resData.success) {
-    alert('Тренер успешно удален')
     return document.location.reload()
   }
   return alert('Что-то пошло не так')

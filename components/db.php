@@ -11,4 +11,4 @@ session_start();
 // $query_builder = TRUE;
 // $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-$conn = mysqli_connect('localhost', 'root', '', 'kursovik');
+$conn = mysqli_connect('localhost', 'root', 'root', 'kursovik');
