@@ -52,7 +52,7 @@ foreach ($resultDates as $key => $value) {
             <?php
             include './components/accSidebar.php';
             ?>
-            
+
             <div class="acc__content">
                 <div class="coach__back_link_wrapper">
                     <a href="./coaches_select_list.php">Назад</a>
@@ -67,7 +67,7 @@ foreach ($resultDates as $key => $value) {
 
                         <h3><?php echo $name ?></h3>
                         <img src=<?php echo "./img/coaches/$imgStr" ?> alt='Картинка'>
-                        <h4>Стоимость тренировки(полтора часа): <?php echo $price ?>&#8381;</h4>
+                        <h4>Стоимость тренировки: <?php echo $price ?>&#8381;</h4>
                         <h5>Выберите дату тренировки</h5>
                         <select class="coach__select_time" placeholder="Выберите дату" def>
                             <?php foreach ($dates as $key => $value) {
