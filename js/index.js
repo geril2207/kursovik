@@ -19,24 +19,3 @@ navLinks.forEach((e) => {
     }
   })
 })
-
-window.addEventListener('click', (e) => {
-  if (e.target.closest('.price__left_btn_item')) {
-    e.preventDefault()
-    popup.classList.add('popup__active')
-    return
-  }
-  if (
-    (!e.target.closest('.popup') &&
-      popup.classList.contains('popup__active')) ||
-    e.target.closest('.popup__close')
-  ) {
-    popup.classList.remove('popup__active')
-  }
-  if (e.target.closest('.burger')) {
-    burger.classList.add('header__nav_burger')
-  }
-  if (e.target.closest('.burger__close')) {
-    burger.classList.remove('header__nav_burger')
-  }
-})

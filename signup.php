@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             include './pages/signupPage.php';
         }
     } else {
-
-        echo '<h4>Вы успешно зарегистрированы. <a href="./login.php">Войти</a></h4>';
+        include './helpers/redirect.php';
+        redirect('./login.php');
     }
 } else {
     include './pages/signupPage.php';

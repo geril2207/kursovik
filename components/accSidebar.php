@@ -3,7 +3,7 @@
             Аккаунт
         </a>
         <a class="acc__sidebar_item" href="./abonement.php">
-            Абонемент
+            Клубная карта
         </a>
         <a class="acc__sidebar_item" href="./coaches_select_list.php">
             Запись к тренеру

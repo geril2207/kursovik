@@ -59,7 +59,7 @@
                 <p class="why__item_text">Бесплатная парковка вашего автомобиля</p>
             </div>
             <div class="why__item">
-                <img src="./img/static/why/5.svg" alt="" class="why__item_logo" />
+                <img src="./img/static/why/5.png" alt="" class="why__item_logo" />
                 <h4 class="why__item_title">АЭРОБНЫЕ НАГРУЗКИ</h4>
                 <img class="why__item_line" src="./img/static/why/item-line.svg" alt="" />
                 <p class="why__item_text">
@@ -180,7 +180,7 @@
                         <img src="./img/static/pulse-price.svg" class="price__left_price_img" />
                     </div>
                     <div class="price_left__btn">
-                        <a class="price__left_btn_item" href="">Купить</a>
+                        <a class="price__left_btn_item custom__button" href="./abonement.php">Заказать</a>
                     </div>
                 </div>
                 <div class="price__center">
@@ -212,7 +212,7 @@
                         <img src="./img/static/pulse-price.svg" class="price__left_price_img_reverse" />
                     </div>
                     <div class="price_left__btn">
-                        <a class="price__left_btn_item" href="">Купить</a>
+                        <a class="price__left_btn_item custom__button" href="./abonement.php">Заказать</a>
                     </div>
                 </div>
             </div>
@@ -224,7 +224,7 @@
                         <img src="./img/static/pulse-price.svg" class="price__left_price_img" />
                     </div>
                     <div class="price_left__btn">
-                        <a class="price__left_btn_item" href="">Купить</a>
+                        <a class="price__left_btn_item custom__button" href="./abonement.php">Заказать</a>
                     </div>
                 </div>
                 <div class="price__center">
@@ -259,7 +259,7 @@
                         <img src="./img/static/pulse-price.svg" class="price__left_price_img_reverse" />
                     </div>
                     <div class="price_left__btn">
-                        <a class="price__left_btn_item" href="">Купить</a>
+                        <a class="price__left_btn_item custom__button" href="./abonement.php">Заказать</a>
                     </div>
                 </div>
             </div>

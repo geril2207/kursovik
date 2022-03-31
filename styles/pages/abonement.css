@@ -58,3 +58,94 @@
 .abonement__body_wrapper {
   width: 100%;
 }
+.clubcard__inner {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+  justify-content: space-between;
+}
+.clubcard__item_flex {
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+.clubcard__item {
+  background: #fcf322;
+  border-radius: 51px;
+  border: 6px solid #000000;
+  text-align: center;
+  margin-top: 30px;
+  width: 45%;
+}
+.clubcard__item_title {
+  font-size: 50px;
+  text-align: center;
+  line-height: 60px;
+  padding: 5px 0;
+  border-bottom: 6px solid black;
+}
+.clubcard__item_price {
+  font-size: 30px;
+  margin-top: 25px;
+}
+.clubcard__item_list {
+  font-size: 24px;
+  margin-top: 25px;
+  padding-bottom: 25px;
+  margin-top: 25px;
+  height: 220px;
+  border-bottom: 6px solid black;
+}
+.clubcard__mycards_list table {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+.clubcard__mycards_title {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+}
+.clubcard__item_list ul {
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-around;
+  gap: 15px;
+}
+.clubcard__item_list ul li {
+  width: 100%;
+  text-align: center;
+}
+
+.clubcard__item_btn {
+  margin: 15px auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.clubcard__phone {
+  margin-top: 50px;
+  font-size: 24px;
+  line-height: 34px;
+}
+
+.popup__abonement_name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.coach_abonement {
+  font-size: 36px;
+  line-height: 44px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 50px;
+}
